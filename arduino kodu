@@ -1,7 +1,6 @@
 #include <Servo.h>. 
-// Ultrasonik Sinyal pinleri
-const int trigPin = 10;
-const int echoPin = 11;
+const int trigPin = 10; // Ultrasonik Sinyal pinleri
+const int echoPin = 11; // Ultrasonik Sinyal pinleri
 long duration;
 int distance;
 Servo myServo; 
@@ -12,7 +11,7 @@ void setup() {
   myServo.attach(12); // Servo motor sinyal pini
 }
 void loop() {
-  for(int i=15;i<=165;i++){  // 15 derece ile 165 derece arasında dön
+  for(int i=15;i<=180;i++){  // 15 derece ile 180 derece arasında dön
   myServo.write(i);
   delay(30);
   distance = calculateDistance();
@@ -23,7 +22,7 @@ void loop() {
   Serial.print("."); 
   }
   
-  for(int i=165;i>15;i--){  
+  for(int i=180;i>15;i--){  
   myServo.write(i);
   delay(30);
   distance = calculateDistance();
