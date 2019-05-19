@@ -1,9 +1,7 @@
 import processing.serial.*; // kütüphane entegresi
 import java.awt.event.KeyEvent; 
 import java.io.IOException;
-
 Serial myPort; 
-
 String angle="";
 String distance="";
 String data="";
@@ -31,7 +29,7 @@ void draw() {
   fill(0,4); 
   rect(0, 0, width, 1010); 
   
-  fill(98,245,31); // yeşil renk
+  fill(98,245,31); // yeşil renkli
 
   drawRadar(); 
   drawLine();
@@ -48,7 +46,6 @@ void serialEvent (Serial myPort) {
   angle= data.substring(0, index1); 
   distance= data.substring(index1+1, data.length()); 
   
-
   iAngle = int(angle);
   iDistance = int(distance);
 }
@@ -81,8 +78,8 @@ void drawObject() {
   strokeWeight(9);
   stroke(255,10,10); // kırmızı renk
   pixsDistance = iDistance*22.5; 
-  // 40 cm ye kadar ölçer
-  if(iDistance<40){
+  
+  if(iDistance<40){  // 40 cm ye kadar ölçer
     
   line(pixsDistance*cos(radians(iAngle)),-pixsDistance*sin(radians(iAngle)),700*cos(radians(iAngle)),-700*sin(radians(iAngle)));
   }
